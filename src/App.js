@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
-
 import {
     Button,
     Collapse,
     Menu,
     Layout,
+    Tabs,
+    Icon,
 } from 'antd';
 import './App.css';
 
+
+
+const TabPane = Tabs.TabPane;
 const Panel = Collapse.Panel;
 // const { SubMenu } = Menu;
 const { Header, Content, } = Layout;
-
+const IconFont = Icon.createFromIconfontCN({
+    scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js',
+});
 
 function callback(key) {
     console.log(key);
@@ -21,7 +27,21 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-<Layout>
+
+          <Tabs defaultActiveKey="1" onChange={callback}>
+              <TabPane tab="Tab 1" key="1">Content of blabla</TabPane>
+              <TabPane tab="Tab 2" key="2">Content of Tab Pane 2</TabPane>
+              <TabPane tab="Tab 3" key="3">Content of Tab Pane 3</TabPane>
+          </Tabs>
+
+          <div className="icons-list">
+              <IconFont type="icon-tuichu" />
+              <IconFont type="icon-facebook" />
+              <IconFont type="icon-twitter" />
+          </div>
+
+
+          <Layout>
               <Header className="header">
                   <div className="logo" />
                   <Menu
@@ -87,6 +107,9 @@ class App extends Component {
     </Content>
 </Layout>
 </Layout>
+
+
+
       </div>
     );
   }
